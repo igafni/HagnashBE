@@ -19,6 +19,7 @@ app = FastAPI()
 app.mount("/static", StaticFiles(directory="./App/statics"), name="static")
 # app.mount("/static", StaticFiles(directory="statics"), name="static")
 origins = [
+    "*",
     "http://localhost:3000",
     "https://localhost:3000",
     "http://localhost"
