@@ -20,5 +20,11 @@ res = {
 }
 es = ElasticAdapter(connection_string=CONNECTION_STRING, api_key=API_KEY, index="places")
 es.connect()
-es.index_document(res)
+# es.index_document(res)
+res1  = es.search_document({"query":{
+    "query_string":{
+        "query": "*בית*"
+    }
+}})
+print(res1)
 es.close()
