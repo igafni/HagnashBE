@@ -13,7 +13,7 @@ class ElasticAdapter(object):
         self.es = None
 
     def connect(self):
-        self.es = Elasticsearch([self.connection_string], api_key=self.api_key)
+        self.es = Elasticsearch(self.connection_string, api_key=self.api_key)
 
     def close(self):
         self.es.close()
@@ -21,7 +21,7 @@ class ElasticAdapter(object):
     def index_document(self, document: Dict):
         self.es.index(index=self.index, body=document)
 
-    def search_document(self, index: str, query: Dict):
+    def search_document(self, query: Dict):
         return self.es.search(index=self.index, body=query)
 
     def delete_document(self, document: Dict):
