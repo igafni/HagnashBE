@@ -34,7 +34,8 @@ async def get_places_by_text(text: str):
         }
     }})['hits']['hits']
     es.close()
-    return map(place_to_snippet, result)
+    places = map(place_to_snippet, result)
+    return list(places)
 
 
 @router.get("/places/", tags=["places"])
@@ -45,4 +46,5 @@ async def get_all_places():
         'match_all': {}
     }})['hits']['hits']
     es.close()
-    return map(place_to_snippet, result)
+    places = map(place_to_snippet, result)
+    return list(places)

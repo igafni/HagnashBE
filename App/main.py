@@ -12,3 +12,5 @@ app = FastAPI()
 app.include_router(PlacesRouter)
 app.include_router(CommentsRouter)
 app.include_router(ResourcesRouter)
+
+#uvicorn.run(app)
