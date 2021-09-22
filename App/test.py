@@ -7,7 +7,10 @@ res = {
     "description": "בית נופש על הים. בעל אוכלוסייה צעירה ותוססת,"
                    " חדר אוכל ברמת מסעדת מישלן בהובלת השף, מיכאל (<גפני לא לשכוח לשים שם משפחה>)."
                    " עובדה מעניינת - במיקום זה מתקיים קורס ממס בוגרים בהובלת סגל מפקדים מהמם",
-    "images": ["ae990b18-df76-42c3-9400-71d7edc0b7f3"],
+    "images": [{
+        "path": "static/images/ae990b18-df76-42c3-9400-71d7edc0b7f3%20.jpg",
+        "description": "הבריכה"
+    }],
     "area": "השרון",
     "location": {"lon": "32.2999385", "lat": "34.8204612"},
     "facilities": ["music_room", "pool"],
@@ -20,9 +23,9 @@ res = {
 }
 es = ElasticAdapter(connection_string=CONNECTION_STRING, api_key=API_KEY, index="places")
 es.connect()
-# es.index_document(res)
-res1  = es.search_document({"query":{
-    "query_string":{
+es.index_document(res)
+res1 = es.search_document({"query": {
+    "query_string": {
         "query": "*בית*"
     }
 }})

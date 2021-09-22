@@ -1,16 +1,12 @@
 from fastapi import APIRouter
 from pydantic import BaseModel
+from fastapi.staticfiles import StaticFiles
 
 router = APIRouter()
 
 
 class Image(BaseModel):
     pass
-
-
-@router.get("/resources/images/{image_id}", tags=["resources"])
-async def get_image():
-    return
 
 
 @router.post("/resources/images", tags=["resources"])
