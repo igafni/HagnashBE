@@ -12,9 +12,10 @@ class Place(BaseModel):
     name: str
 
 
-@router.get("/places/{item_id}", tags=["places"])
-async def get_place(item_id: int):
+@router.get("/places/getPlace/{item_id}", tags=["places"])
+async def get_place(item_id: str):
     return {"item_id": item_id}
+
 
 @router.get("/places/{text}", tags=["places"])
 async def get_places_by_text(text: str):
@@ -28,6 +29,7 @@ async def get_places_by_text(text: str):
     es.close()
     return res['hits']['hits']
 
+
 @router.get("/places/", tags=["places"])
 async def get_all_places():
     es = ElasticAdapter(connection_string=CONNECTION_STRING, api_key=API_KEY, index=PLACES_INDEX)
@@ -37,4 +39,3 @@ async def get_all_places():
     }})
     es.close()
     return res['hits']['hits']
-
