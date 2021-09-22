@@ -21,7 +21,15 @@ def place_to_snippet(document: Dict):
 
 @router.get("/places/getPlace/{item_id}", tags=["places"])
 async def get_place(item_id: str):
-    return {"item_id": item_id}
+    es = ElasticAdapter(connection_string=CONNECTION_STRING, api_key=API_KEY, index=PLACES_INDEX)
+    es.connect()
+    result = es.search_document({"query": {
+        "match": {
+            "id": item_id
+        }
+    }})['hits']['hits']
+    es.close()
+    return result
 
 
 @router.get("/places/{text}", tags=["places"])
