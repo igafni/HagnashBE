@@ -27,7 +27,7 @@ async def get_place(item_id: str):
         "match": {
             "id": item_id
         }
-    }})['hits']['hits'][0]['source']
+    }})['hits']['hits'][0]['_source']
     es.close()
     return result
 

@@ -1,7 +1,7 @@
 from common.ElasticSearchAdapter.ElasticAdapter import ElasticAdapter, CONNECTION_STRING, API_KEY
 import uuid
 
-es = ElasticAdapter(connection_string=CONNECTION_STRING, api_key=API_KEY, index="comments")
+es = ElasticAdapter(connection_string=CONNECTION_STRING, api_key=API_KEY, index="places")
 es.connect()
 # res = {
 #     "id": uuid.uuid4(),
@@ -27,12 +27,9 @@ es.connect()
 #     }
 # }})
 res = es.search_document({"query": {
-    "match": {
-        "place_id": "56d020b5-e2c2-4c3c-8f97-4d6784b4ece4"
-    }},
-    "aggs": {
-        "avg_grade": {"avg": {"field": "rate"}}
-    }
-})
-print(res)
+        "match": {
+            "id": "56d020b5-e2c2-4c3c-8f97-4d6784b4ece4"
+        }
+    }})
+print(res['hits']['hits'][0]['_source'])
 es.close()
