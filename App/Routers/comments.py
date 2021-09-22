@@ -38,6 +38,20 @@ async def get_all_comment(place_id: str):
     return res["hits"]["hits"]
 
 
+async def get_all_comment(place_id: str):
+    es.connect()
+    res = es.search_document({"query": {
+        "match": {
+            "place_id": place_id
+        },
+        "aggs": {
+            "avg_grade": {"avg": {"field": "rate"}}
+        }
+    }})
+    es.close()
+    return res["hits"]["hits"]
+
+
 @router.delete("/comments/{comment_id}", tags=["comments"])
 async def delete_comment(comment_id: str):
     es.connect()
