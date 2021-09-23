@@ -17,7 +17,7 @@ class Comment(BaseModel):
     rate: Optional[int]
 
 
-def comment_to_snippet(comment: Dict):
+def comment_to_snippet(comment):
     return comment["_source"]
 
 
@@ -37,10 +37,10 @@ async def get_all_comment(place_id: str):
         "match": {
             "place_id": place_id
         }
-    }})["hits"]["hits"]
+    }})
     es.close()
-    comments = map(comment_to_snippet, res)
-    return comments
+    comments = map(comment_to_snippet, res["hits"]["hits"])
+    return list(comments)
 
 
 @router.get("/rateAverage/{place_id}", tags=["comments"])
