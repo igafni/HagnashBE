@@ -4,46 +4,37 @@ import uuid
 es = ElasticAdapter(connection_string=CONNECTION_STRING, api_key=API_KEY, index="places")
 es.connect()
 res = {
-    "id": "56d020b5-e2c2-4c3c-8f97-4d6784b4ece4",
-    "name": "בית פלדמן",
-    "description": "בית נופש על הים. בעל אוכלוסייה צעירה ותוססת, חדר אוכל ברמת מסעדת מישלן בהובלת השף, מיכאל (גפני לא לשכוח לשים שם משפחה). עובדה מעניינת - במיקום זה מתקיים קורס ממס בוגרים בהובלת סגל מפקדים מהמם",
+    "id": "a8095769-7628-4e4a-a623-ba0c36c767e5",
+    "name": "כפר עציון",
+    "description": " כפר עציון שבגוש עציון מושך אליו נופשים מכל הסוגים. זוגות, משפחות וקבוצות דתיים ושאינם דתיים באים מידי שנה ונהנים, וחיילים שאינם תמיד נהנים.",
     "images": [
         {
-            "path": "static/images/ae990b18-df76-42c3-9400-71d7edc0b7f3%20.jpg",
-            "description": "הבריכה"
+            "path": "static/images/906c4c97-d129-498b-a49a-815e78a8f7e1.jpg",
+            "description": "היישוב"
         },
         {
-            "path": "static/images/97eb36d7-e3a3-41bf-affd-c8962c26e7c8.jpg",
-            "description": "חדר האוכל"
-        },
-        {
-            "path": "static/images/0b50f160-824e-4354-bac2-fa0e49e62096.jpg",
-            "description": "אולם אברהם"
-        },
-        {
-            "path": "static/images/709d521a - a664 - 4ec1 - 931b - 292a6b8e2909.jpg",
-            "description": "נוף וזה"
+            "path": "static/images/96708126-0039-4b35-a984-a72bb4abb707.jpg",
+            "description": "מאהל"
         }
     ],
-    "area": "השרון",
+    "area": "גוש עציון",
     "location": {
-        "lon": "32.3036575",
-        "lat": "34.8430392"
+        "lon": "31.6492899",
+        "lat": "35.1106856"
     },
     "facilities": [
-        "music_room",
-        "pool"
+        "music_room"
     ],
     "guard_post": [
         {
             "type": "sit",
             "name": "שג",
-            "description": "אין הרבה תנועה במהלך השבוע, בעיקר תנועה של קורסיסטים, מידי פעם מגיעים ממסניקים חתיכים בלי אישור כניסה רכבי - מומלץ להכניס בכל זאת"
+            "description": "יש מזגן טוב"
         },
         {
             "type": "walk",
             "name": "פטרול",
-            "description": "בסיס קטן ככה שהפטרול קליל, מידי פעם ממסניקים רצים מסביב למגרש מומלץ להצטרף לריצה"
+            "description": "אין גדר אז צריך להיות חדים בלילה"
         }
     ]
 }
