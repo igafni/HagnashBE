@@ -4,37 +4,46 @@ import uuid
 es = ElasticAdapter(connection_string=CONNECTION_STRING, api_key=API_KEY, index="places")
 es.connect()
 res = {
-    "id": uuid.uuid4(),
-    "name": "אביגיל",
-    "description": "אביגיל הוא מאחז בתחום מועצה אזורית הר חברון. ממוקם על גבעה בין סוסיא למעון, נקרא על שמה של אביגיל, אשת נבל הכרמלי שעל פי המקרא התגוררה במעון המקראית שמזוהה באתר סמוך. "
-                   "נקודה מעניינת - אביגיל בגימטריה זה  'אבטחה כבדה' ו'אבוטבול', צירוף מקרים?",
+    "id": "56d020b5-e2c2-4c3c-8f97-4d6784b4ece4",
+    "name": "בית פלדמן",
+    "description": "בית נופש על הים. בעל אוכלוסייה צעירה ותוססת, חדר אוכל ברמת מסעדת מישלן בהובלת השף, מיכאל (גפני לא לשכוח לשים שם משפחה). עובדה מעניינת - במיקום זה מתקיים קורס ממס בוגרים בהובלת סגל מפקדים מהמם",
     "images": [
         {
-            "path": "static/images/b990834f-cf72-494d-ada4-1913ff842c65.jpg",
-            "description": "כניסה לאביגיל"
+            "path": "static/images/ae990b18-df76-42c3-9400-71d7edc0b7f3%20.jpg",
+            "description": "הבריכה"
         },
         {
-            "path": "static/images/8dac092d-fc28-4053-95fb-76f37d62bccd.jpg",
-            "description": "מעיין חדש"
+            "path": "static/images/97eb36d7-e3a3-41bf-affd-c8962c26e7c8.jpg",
+            "description": "חדר האוכל"
         },
         {
-            "path": "static/images/b3567d2a-18db-4dc8-bcc8-bc031b1449de.jpg",
-            "description": "המאחז"
+            "path": "static/images/0b50f160-824e-4354-bac2-fa0e49e62096.jpg",
+            "description": "אולם אברהם"
+        },
+        {
+            "path": "static/images/709d521a - a664 - 4ec1 - 931b - 292a6b8e2909.jpg",
+            "description": "נוף וזה"
         }
     ],
-    "area": "יהודה",
+    "area": "השרון",
     "location": {
-        "lon": "31.4345152",
-        "lat": "35.1836511"
+        "lon": "32.3036575",
+        "lat": "34.8430392"
     },
     "facilities": [
+        "music_room",
         "pool"
     ],
     "guard_post": [
         {
+            "type": "sit",
+            "name": "שג",
+            "description": "אין הרבה תנועה במהלך השבוע, בעיקר תנועה של קורסיסטים, מידי פעם מגיעים ממסניקים חתיכים בלי אישור כניסה רכבי - מומלץ להכניס בכל זאת"
+        },
+        {
             "type": "walk",
             "name": "פטרול",
-            "description": "הרבה עיזות, אתם עלולים למצוא את עצמכם צועקים על מקומיים לא לגנוב ארטישוקים"
+            "description": "בסיס קטן ככה שהפטרול קליל, מידי פעם ממסניקים רצים מסביב למגרש מומלץ להצטרף לריצה"
         }
     ]
 }
