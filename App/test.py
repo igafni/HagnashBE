@@ -31,7 +31,7 @@ res = {
 }
 
 es.index_document(res)
-
+# es.update_document('6acbec39-1682-4033-a42f-6f29222297c2',)
 # print(res['hits']['hits'][0]['_source'])
 print(uuid.uuid4())
 

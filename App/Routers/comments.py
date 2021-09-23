@@ -1,7 +1,7 @@
 from fastapi import APIRouter
 from pydantic import BaseModel
 import uuid
-from typing import Optional
+from typing import Optional, Dict
 
 from App.common.ElasticSearchAdapter.ElasticAdapter import ElasticAdapter, CONNECTION_STRING, API_KEY
 
@@ -15,6 +15,10 @@ class Comment(BaseModel):
     user: str
     content: str
     rate: Optional[int]
+
+
+def comment_to_snippet(comment: Dict):
+    return comment["_source"]
 
 
 @router.post("/comments/", tags=["comments"])
@@ -33,9 +37,10 @@ async def get_all_comment(place_id: str):
         "match": {
             "place_id": place_id
         }
-    }})
+    }})["hits"]["hits"]
     es.close()
-    return res["hits"]["hits"]
+    comments = map(comment_to_snippet, res)
+    return comments
 
 
 @router.get("/rateAverage/{place_id}", tags=["comments"])

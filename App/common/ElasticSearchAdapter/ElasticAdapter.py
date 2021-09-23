@@ -26,3 +26,6 @@ class ElasticAdapter(object):
 
     def delete_document(self, document: Dict):
         self.es.delete_by_query(index=self.index, body=document)
+
+    def update_document(self, document_id: str, document: Dict):
+        self.es.update(index=self.index, id=document_id, body=document)
