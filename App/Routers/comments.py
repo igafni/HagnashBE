@@ -50,7 +50,10 @@ async def get_rate_average(place_id: str):
         }
     })
     es.close()
-    return {"avg_grade": res["aggregations"]["avg_grade"]["value"]}
+    grade = res["aggregations"]["avg_grade"]["value"]
+    if grade is not None:
+        grade = round(grade, 1)
+    return {"avg_grade": grade}
 
 
 @router.delete("/comments/{comment_id}", tags=["comments"])

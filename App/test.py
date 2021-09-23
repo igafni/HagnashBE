@@ -5,39 +5,34 @@ es = ElasticAdapter(connection_string=CONNECTION_STRING, api_key=API_KEY, index=
 es.connect()
 res = {
     "id": uuid.uuid4(),
-    "name": "עתניאל",
-    "description": "יש גדר אז אין יותר מדי על מה לשמור",
+    "name": "בעל חצור",
+    "description": "היום ההר הוא שטח צבאי סגור ושוכן עליו בסיס של מערך הבקרה בחיל האוויר הישראלי שנבנה החל מ 1975 ותחילת בנייתו בגדר שהקימו חברי קבוצת העבודה שהקימה באותה שנה את היישוב הסמוך עפרה. במסגרת הדיונים עם הרשות הפלסטינית על הסדר הקבע, ישנה דרישה ישראלית שעל ההר תהיה תחנת התרעה ישראלית לפחות לחמש שנים.",
     "images": [
-      {
-        "path": "static/images/4afe1868-82f3-43b3-b4b0-71a083e3b359.jpg",
-        "description": "ברוכים הבאים"
-      },
         {
-        "path": "static/images/d8a1fe3f-861c-4cff-ac7c-246f9610f720.jpg",
-        "description": "עושים כיף"
+            "path": "static/images/4f22b870-6e97-4e52-aa39-cf2ba7ce2c59.jpeg",
+            "description": "בעל חצור"
         }
     ],
-    "area": "יהודה",
+    "area": "בנימין",
     "location": {
-      "lon": "31.4388597",
-      "lat": "35.0223552"
+        "lon": "31.9794618",
+        "lat": "35.2706896"
     },
     "facilities": [
-      "music_room"
+        "gym"
     ],
     "guard_post": [
-      {
-        "type": "sit",
-        "name": "שג",
-        "description": "לפעמים הרבשצ בודק"
-      }
+        {
+            "type": "sit",
+            "name": "שג",
+            "description": "לא מפריעים לך בכלל"
+        }
     ]
-  }
+}
 
 es.index_document(res)
 
-
-#print(res['hits']['hits'][0]['_source'])
+# print(res['hits']['hits'][0]['_source'])
 print(uuid.uuid4())
 
 es.close()
