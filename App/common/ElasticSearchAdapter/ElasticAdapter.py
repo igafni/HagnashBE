@@ -22,10 +22,10 @@ class ElasticAdapter(object):
         self.es.index(index=self.index, body=document)
 
     def search_document(self, query: Dict):
-        return self.es.search(index=self.index, body=query)
+        return self.es.search(index=self.index, body=query, size=100)
 
     def delete_document(self, document: Dict):
         self.es.delete_by_query(index=self.index, body=document)
 
     def update_document(self, document_id: str, document: Dict):
-        self.es.update(index=self.index, id=document_id, body=document)
+        self.es.index(index=self.index, id=document_id, body=document)
